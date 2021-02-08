@@ -26,11 +26,28 @@ bezirke <- st_read("shp-bezirke/bezirke_berlin.shp")
 
 Interactive Visualization
 =======
+<!-- creates a new tab of that name -->
 
-Column {data-width=300}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart A
+### Number of All Accidents
+
+```{r}
+valueBox(nrow(unfaelle), icon = "fa-ambulance")
+```
+
+### Number of Bike Accidents
+
+```{r}
+bikeAccidents <- filter(unfaelle, IstRad==1)
+valueBox(nrow(bikeAccidents), icon = "fa-bicycle")
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Accident Locations
 
 ```{r}
 # 1. Plot the dots themselves
